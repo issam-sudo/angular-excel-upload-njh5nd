@@ -1,0 +1,27 @@
+<input type="file" (change)="onFileChange($event)" multiple="false" />
+
+
+<table class="sjs-table">
+<tbody>
+  <tr *ngFor="let row of data; let i =index">
+    <td *ngFor="let val of row">{{ val }}</td>
+  </tr>
+</tbody>
+</table>
+
+
+<table class="table">
+  <thead *ngFor="let row of data; let i = index">
+    <tr *ngIf="i == 0">
+      <th *ngFor="let val of row" scope="col">{{ val }}</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let row of data; let i = index">
+    <tr *ngIf="i > 0">
+      <th *ngFor="let val of row" scope="row">{{ val }}</th>
+    </tr>
+  </tbody>
+</table>
+
+
+<button (click)="export()">Export!</button>
